@@ -15,7 +15,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prepare-prod": "npm run build && npm run validate-html && npm run test"
+    "prepare-prod": "npm run build && npm run validate-html",
+    "netlify-deploy": "netlify deploy --prod --dir=.",
+    "deploy": "npm run prepare-prod && echo 'Ready for Netlify deployment to nmadhire.com/timezone-app!'"
   },
   "keywords": [
     "timezone",

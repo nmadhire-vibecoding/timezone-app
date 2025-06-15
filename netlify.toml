@@ -1,0 +1,45 @@
+# Netlify configuration for nmadhire.com/timezone-app
+[build]
+  # Directory to serve from
+  publish = "."
+  
+  # Build command for production
+  command = "npm run build"
+
+# Settings for the timezone-app subdirectory deployment
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+# Custom headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cache-Control = "public, max-age=3600"
+
+# Cache static assets longer
+[[headers]]
+  for = "/src/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/src/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Redirects for subdirectory deployment on custom domain
+[[redirects]]
+  from = "https://nmadhire.com/timezone-app"
+  to = "https://nmadhire.com/timezone-app/"
+  status = 301
+
+# Handle any missing files
+[[redirects]]
+  from = "/timezone-app/*"
+  to = "/timezone-app/index.html"
+  status = 200

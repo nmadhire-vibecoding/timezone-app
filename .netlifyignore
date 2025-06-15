@@ -1,0 +1,34 @@
+# Netlify deployment ignore file
+# Files and directories to exclude from deployment
+
+# Development dependencies
+node_modules/
+.git/
+
+# Test files and coverage
+tests/
+coverage/
+jest.config.json
+
+# Development configuration
+.eslintrc.json
+.prettierrc.json
+
+# Build artifacts (using source files directly)
+public/*.min.css
+public/*.min.js
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Documentation (not needed for live site)
+README.md
+APACHE-LICENSE-2.0.txt
