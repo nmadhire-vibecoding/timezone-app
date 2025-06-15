@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timezone Checker</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Timezone Checker</h1>
+            <p>Check the current time in different timezones around the world</p>
+        </header>
+
+        <main>
+            <div class="timezone-grid">
+                <div class="timezone-card" id="timezone-1">
+                    <div class="timezone-header">
+                        <h3>Timezone 1</h3>
+                        <select class="timezone-select" data-timezone="1">
+                            <option value="">Select a timezone</option>
+                        </select>
+                    </div>
+                    <div class="time-display">
+                        <div class="time">--:--:--</div>
+                        <div class="date">Select a timezone</div>
+                        <div class="zone-info">--</div>
+                    </div>
+                </div>
+
+                <div class="timezone-card" id="timezone-2">
+                    <div class="timezone-header">
+                        <h3>Timezone 2</h3>
+                        <select class="timezone-select" data-timezone="2">
+                            <option value="">Select a timezone</option>
+                        </select>
+                    </div>
+                    <div class="time-display">
+                        <div class="time">--:--:--</div>
+                        <div class="date">Select a timezone</div>
+                        <div class="zone-info">--</div>
+                    </div>
+                </div>
+
+                <div class="timezone-card" id="timezone-3">
+                    <div class="timezone-header">
+                        <h3>Timezone 3</h3>
+                        <select class="timezone-select" data-timezone="3">
+                            <option value="">Select a timezone</option>
+                        </select>
+                    </div>
+                    <div class="time-display">
+                        <div class="time">--:--:--</div>
+                        <div class="date">Select a timezone</div>
+                        <div class="zone-info">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="refresh-btn" class="refresh-btn">
+                    <span class="refresh-icon">🔄</span>
+                    Refresh Times
+                </button>
+                <div class="auto-refresh">
+                    <label>
+                        <input type="checkbox" id="auto-refresh" checked>
+                        Auto-refresh every minute
+                    </label>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Timezone Checker - Built with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>
