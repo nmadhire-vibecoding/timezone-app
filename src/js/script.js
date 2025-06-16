@@ -35,6 +35,7 @@ class TimezoneApp {
         this.populateTimezoneSelects();
         this.bindEvents();
         this.startAutoRefresh();
+        this.initializeTheme();
     }
 
     populateTimezoneSelects() {
@@ -83,6 +84,11 @@ class TimezoneApp {
             } else {
                 this.stopAutoRefresh();
             }
+        });
+
+        // Theme toggle
+        document.getElementById('theme-toggle').addEventListener('change', (e) => {
+            this.toggleTheme(e.target.checked);
         });
     }
 
@@ -195,6 +201,39 @@ class TimezoneApp {
         } catch (error) {
             console.error('Error getting time for timezone:', timezone, error);
             return null;
+        }
+    }
+
+    // Theme management methods
+    toggleTheme(isDark) {
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            this.updateThemeLabel('☀️ Light Mode');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            this.updateThemeLabel('🌙 Dark Mode');
+        }
+    }
+
+    updateThemeLabel(text) {
+        const themeLabel = document.querySelector('.theme-label');
+        if (themeLabel) {
+            themeLabel.textContent = text;
+        }
+    }
+
+    initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (themeToggle) themeToggle.checked = true;
+            this.updateThemeLabel('☀️ Light Mode');
+        } else {
+            this.updateThemeLabel('🌙 Dark Mode');
         }
     }
 }
